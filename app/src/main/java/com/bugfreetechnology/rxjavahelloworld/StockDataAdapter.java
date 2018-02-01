@@ -25,8 +25,7 @@ public class StockDataAdapter extends RecyclerView.Adapter<StockDataAdapter.Stoc
                                                     int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.stock_update_item, parent, false);
-        StockUpdateViewHolder vh = new StockUpdateViewHolder(v);
-        return vh;
+        return new StockUpdateViewHolder(v);
     }
 
     @Override

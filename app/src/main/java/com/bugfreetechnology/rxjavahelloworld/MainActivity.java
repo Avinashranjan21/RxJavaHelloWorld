@@ -13,7 +13,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     TextView helloWorldSalute;
     @BindView(R.id.stock_updates_recycler_view)
     RecyclerView recyclerView;
-    private LinearLayoutManager layoutManager;
     private StockDataAdapter stockDataAdapter;
     private static final String TAG = "MainActivity";
 
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Observable.just("Hello from RetroLambda").subscribe(e -> Log.d(TAG, "Hello " + e));
 
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         stockDataAdapter = new StockDataAdapter();
         recyclerView.setAdapter(stockDataAdapter);
